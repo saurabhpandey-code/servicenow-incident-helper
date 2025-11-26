@@ -27,7 +27,7 @@
     <list_save_with_form_button>false</list_save_with_form_button>
     <list_style/>
     <messages/>
-    <name>Pause SLA</name>
+    <name>Pause SLA (Scheduled)</name>
     <onclick>onClick()</onclick>
     <order>120</order>
     <script><![CDATA[function onClick() {
@@ -43,7 +43,7 @@
     <sys_created_by>admin</sys_created_by>
     <sys_domain>global</sys_domain>
     <sys_domain_path>/</sys_domain_path>
-    <sys_name>Pause SLA</sys_name>
+    <sys_name>Pause SLA (Scheduled)</sys_name>
     <sys_overrides/>
     <sys_package display_value="Incident Helper" source="x_1731528_incide_0">f58d3e878315b2109135f6b6feaad3ad</sys_package>
     <sys_scope display_value="Incident Helper">f58d3e878315b2109135f6b6feaad3ad</sys_scope>
