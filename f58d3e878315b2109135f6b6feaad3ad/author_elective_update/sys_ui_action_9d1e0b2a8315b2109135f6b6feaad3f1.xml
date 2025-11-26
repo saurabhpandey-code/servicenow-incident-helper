@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="DELETE">
+        <action_name/>
+        <active>true</active>
+        <client>true</client>
+        <client_script_v2><![CDATA[function onClick(g_form) {
+
+}]]></client_script_v2>
+        <comments/>
+        <condition/>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style/>
+        <format_for_configurable_workspace>false</format_for_configurable_workspace>
+        <hint/>
+        <isolate_script>true</isolate_script>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <messages/>
+        <name>Set to P1</name>
+        <onclick>onClick()</onclick>
+        <order>110</order>
+        <script><![CDATA[function onClick() {
+    if (!confirm('Are you sure you want to update the priority to P1?')) {
+        return;
+    }
+    // Set impact and urgency to 1 so server-side logic derives Priority = 1
+    g_form.setValue('impact', '1');
+    g_form.setValue('urgency', '1');
+    g_form.save();
+}]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-26 15:40:00</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>9d1e0b2a8315b2109135f6b6feaad3f1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Set to P1</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Incident Helper" source="x_1731528_incide_0">f58d3e878315b2109135f6b6feaad3ad</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Helper">f58d3e878315b2109135f6b6feaad3ad</sys_scope>
+        <sys_update_name>sys_ui_action_9d1e0b2a8315b2109135f6b6feaad3f1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-26 15:40:00</sys_updated_on>
+        <table>incident</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Incident Helper">f58d3e878315b2109135f6b6feaad3ad</application>
+        <file_path/>
+        <instance_id>2cb3eb09eb37ce50e483f459bad0cd38</instance_id>
+        <instance_name>dev285363</instance_name>
+        <name>sys_ui_action_9d1e0b2a8315b2109135f6b6feaad3f1</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_ui_action"&gt;
+    &lt;sys_ui_action action="INSERT_OR_UPDATE"&gt;
+        &lt;action_name/&gt;
+        &lt;active&gt;true&lt;/active&gt;
+        &lt;client&gt;true&lt;/client&gt;
+        &lt;client_script_v2&gt;&lt;![CDATA[function onClick(g_form) {
+
+}]]&gt;&lt;/client_script_v2&gt;
+        &lt;comments/&gt;
+        &lt;condition/&gt;
+        &lt;form_action&gt;true&lt;/form_action&gt;
+        &lt;form_button&gt;true&lt;/form_button&gt;
+        &lt;form_button_v2&gt;false&lt;/form_button_v2&gt;
+        &lt;form_context_menu&gt;false&lt;/form_context_menu&gt;
+        &lt;form_link&gt;false&lt;/form_link&gt;
+        &lt;form_menu_button_v2&gt;false&lt;/form_menu_button_v2&gt;
+        &lt;form_style/&gt;
+        &lt;format_for_configurable_workspace&gt;false&lt;/format_for_configurable_workspace&gt;
+        &lt;hint/&gt;
+        &lt;isolate_script&gt;true&lt;/isolate_script&gt;
+        &lt;list_action&gt;false&lt;/list_action&gt;
+        &lt;list_banner_button&gt;false&lt;/list_banner_button&gt;
+        &lt;list_button&gt;false&lt;/list_button&gt;
+        &lt;list_choice&gt;false&lt;/list_choice&gt;
+        &lt;list_context_menu&gt;false&lt;/list_context_menu&gt;
+        &lt;list_link&gt;false&lt;/list_link&gt;
+        &lt;list_save_with_form_button&gt;false&lt;/list_save_with_form_button&gt;
+        &lt;list_style/&gt;
+        &lt;messages/&gt;
+        &lt;name&gt;Set to P1&lt;/name&gt;
+        &lt;onclick&gt;onClick()&lt;/onclick&gt;
+        &lt;order&gt;110&lt;/order&gt;
+        &lt;script&gt;&lt;![CDATA[function onClick() {
+    if (!confirm('Are you sure you want to update the priority to P1?')) {
+        return;
+    }
+    // Set impact and urgency to 1 so server-side logic derives Priority = 1
+    g_form.setValue('impact', '1');
+    g_form.setValue('urgency', '1');
+    g_form.save();
+}]]&gt;&lt;/script&gt;
+        &lt;show_insert&gt;true&lt;/show_insert&gt;
+        &lt;show_multiple_update&gt;false&lt;/show_multiple_update&gt;
+        &lt;show_query&gt;false&lt;/show_query&gt;
+        &lt;show_update&gt;true&lt;/show_update&gt;
+        &lt;sys_class_name&gt;sys_ui_action&lt;/sys_class_name&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2025-11-26 15:40:00&lt;/sys_created_on&gt;
+        &lt;sys_domain&gt;global&lt;/sys_domain&gt;
+        &lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;
+        &lt;sys_id&gt;9d1e0b2a8315b2109135f6b6feaad3f1&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;
+        &lt;sys_name&gt;Set to P1&lt;/sys_name&gt;
+        &lt;sys_overrides/&gt;
+        &lt;sys_package display_value="Incident Helper" source="x_1731528_incide_0"&gt;f58d3e878315b2109135f6b6feaad3ad&lt;/sys_package&gt;
+        &lt;sys_policy/&gt;
+        &lt;sys_scope display_value="Incident Helper"&gt;f58d3e878315b2109135f6b6feaad3ad&lt;/sys_scope&gt;
+        &lt;sys_update_name&gt;sys_ui_action_9d1e0b2a8315b2109135f6b6feaad3f1&lt;/sys_update_name&gt;
+        &lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2025-11-26 15:40:00&lt;/sys_updated_on&gt;
+        &lt;table&gt;incident&lt;/table&gt;
+        &lt;ui11_compatible&gt;true&lt;/ui11_compatible&gt;
+        &lt;ui16_compatible&gt;false&lt;/ui16_compatible&gt;
+    &lt;/sys_ui_action&gt;
+&lt;/record_update&gt;</payload>
+        <payload_hash>-1646419832</payload_hash>
+        <record_name>Set to P1</record_name>
+        <reverted_from/>
+        <source/>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-26 16:01:37</sys_created_on>
+        <sys_id>9391460c8329b2109135f6b6feaad3cd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19ac0e61d370000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-26 16:01:37</sys_updated_on>
+        <type>UI Action</type>
+        <update_guid>5391460c7f29b210eb538a385562c6cd</update_guid>
+        <update_guid_history>b3feb9085029b2104b140ee1bbbac743:-1156346372</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-26 16:20:15</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_action">sys_ui_action</sys_db_object>
+        <sys_id>394bb24f26114510b30a191e1e01d290</sys_id>
+        <sys_metadata>9d1e0b2a8315b2109135f6b6feaad3f1</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Set to P1</sys_name>
+        <sys_package display_value="Incident Helper" source="x_1731528_incide_0">f58d3e878315b2109135f6b6feaad3ad</sys_package>
+        <sys_parent display_value="Incident">efaf6176f1f322108bb2efdbde054cd0</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Incident Helper">f58d3e878315b2109135f6b6feaad3ad</sys_scope>
+        <sys_scope_delete display_value="">a166df7bc0b84614ac33973d25dec490</sys_scope_delete>
+        <sys_update_name>sys_ui_action_9d1e0b2a8315b2109135f6b6feaad3f1</sys_update_name>
+        <sys_update_version display_value="sys_ui_action_9d1e0b2a8315b2109135f6b6feaad3f1">9391460c8329b2109135f6b6feaad3cd</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-26 16:20:15</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
