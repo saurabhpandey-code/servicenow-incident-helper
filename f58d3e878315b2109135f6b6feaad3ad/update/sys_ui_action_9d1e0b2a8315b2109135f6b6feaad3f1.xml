@@ -34,7 +34,9 @@
     if (!confirm('Are you sure you want to update the priority to P1?')) {
         return;
     }
-    g_form.setValue('priority', '1');
+    // Set impact and urgency to 1 so server-side logic derives Priority = 1
+    g_form.setValue('impact', '1');
+    g_form.setValue('urgency', '1');
     g_form.save();
 }]]></script>
         <show_insert>true</show_insert>
