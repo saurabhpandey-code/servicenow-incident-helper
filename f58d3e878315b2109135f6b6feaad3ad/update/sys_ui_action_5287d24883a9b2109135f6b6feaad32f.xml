@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name/>
+        <active>true</active>
+        <client>true</client>
+        <client_script_v2><![CDATA[function onClick(g_form) {
+
+}]]></client_script_v2>
+        <comments/>
+        <condition/>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style/>
+        <format_for_configurable_workspace>false</format_for_configurable_workspace>
+        <hint/>
+        <isolate_script>true</isolate_script>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <messages/>
+        <name>Pause SLA</name>
+        <onclick>onClick()</onclick>
+        <order>120</order>
+        <script><![CDATA[function onClick() {
+  try {
+    var sysId = g_form && g_form.getUniqueValue ? g_form.getUniqueValue() : '';
+    // Prefer GlideModal in UI16
+    if (typeof GlideModal === 'function') {
+      var gm = new GlideModal('x_incident_pause_sla_dialog', false, 520);
+      gm.setTitle('Pause SLA');
+      gm.setPreference('sysparm_sys_id', sysId);
+      if (gm.setSize) gm.setSize(520, 260);
+      gm.render();
+      return;
+    }
+    // Fallback to classic dialog window
+    var win = (typeof top !== 'undefined' && top.GlideDialogWindow) ? top : window;
+    if (win && win.GlideDialogWindow) {
+      var dlg = new win.GlideDialogWindow('x_incident_pause_sla_dialog');
+      dlg.setTitle('Pause SLA');
+      dlg.setPreference('sysparm_sys_id', sysId);
+      if (dlg.setSize) dlg.setSize(520, 260);
+      dlg.render();
+      return;
+    }
+    // Last resort: open UI Page directly
+    if (sysId) {
+      window.open('x_incident_pause_sla_dialog.do?sysparm_sys_id=' + encodeURIComponent(sysId), '_blank', 'width=560,height=320');
+    } else {
+      window.open('x_incident_pause_sla_dialog.do', '_blank', 'width=560,height=320');
+    }
+  } catch (e) {
+    alert('Unable to open dialog: ' + e);
+  }
+}]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-26 17:37:23</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>5287d24883a9b2109135f6b6feaad32f</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Pause SLA</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Incident Helper" source="x_1731528_incide_0">f58d3e878315b2109135f6b6feaad3ad</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Helper">f58d3e878315b2109135f6b6feaad3ad</sys_scope>
+        <sys_update_name>sys_ui_action_5287d24883a9b2109135f6b6feaad32f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-26 17:46:44</sys_updated_on>
+        <table>incident</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>true</ui16_compatible>
+    </sys_ui_action>
+</record_update>
