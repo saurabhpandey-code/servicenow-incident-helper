@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
   <sys_ui_page action="INSERT_OR_UPDATE">
     <client_script><![CDATA[(function() {
+  function getSysId() {
+    try {
+      if (typeof g_form !== 'undefined' && g_form.getUniqueValue) return g_form.getUniqueValue();
+      if (typeof top !== 'undefined' && top && top.g_form && top.g_form.getUniqueValue) return top.g_form.getUniqueValue();
+      if (typeof gel !== 'undefined') {
+        var el = gel('sysparm_sys_id');
+        if (el && el.value) return el.value;
+      }
+    } catch(e) {}
+    return '';
+  }
   function submitPause() {
     var start = document.getElementById('pause_start').value;
     var end = document.getElementById('pause_end').value;
@@ -10,7 +21,7 @@
     }
     var ga = new GlideAjax('IncHelperSlaPauseScheduler');
     ga.addParam('sysparm_name', 'schedule');
-    ga.addParam('sysparm_incident_id', g_form ? g_form.getUniqueValue() : top && top.g_form ? top.g_form.getUniqueValue() : '');
+    ga.addParam('sysparm_incident_id', getSysId());
     ga.addParam('sysparm_start', start);
     ga.addParam('sysparm_end', end);
     ga.getXMLAnswer(function(ans){

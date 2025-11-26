@@ -31,9 +31,11 @@
     <onclick>onClick()</onclick>
     <order>120</order>
     <script><![CDATA[function onClick() {
-  var dlg = new GlideDialogWindow('x_incident_pause_sla_dialog');
+  var win = (typeof top !== 'undefined' && top.GlideDialogWindow) ? top : window;
+  var dlg = new win.GlideDialogWindow('x_incident_pause_sla_dialog');
   dlg.setTitle('Pause SLA');
   dlg.setPreference('sysparm_sys_id', g_form.getUniqueValue());
+  if (dlg.setSize) dlg.setSize(520, 260);
   dlg.render();
 }]]></script>
     <show_insert>true</show_insert>
@@ -50,6 +52,6 @@
     <sys_scope display_value="Incident Helper">f58d3e878315b2109135f6b6feaad3ad</sys_scope>
     <table>incident</table>
     <ui11_compatible>true</ui11_compatible>
-    <ui16_compatible>false</ui16_compatible>
+    <ui16_compatible>true</ui16_compatible>
   </sys_ui_action>
 </record_update>
