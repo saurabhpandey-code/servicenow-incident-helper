@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_register">
+  <sysevent_register action="INSERT_OR_UPDATE">
+    <name>x_incident.pause_sla_start</name>
+    <table>incident</table>
+    <sys_name>x_incident.pause_sla_start</sys_name>
+    <sys_scope display_value="Incident Helper">f58d3e878315b2109135f6b6feaad3ad</sys_scope>
+    <sys_update_name>sysevent_registration_x_incident_pause_sla_start</sys_update_name>
+    <firing>async</firing>
+    <description>Start SLA pause window</description>
+  </sysevent_register>
+</record_update>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <active>true</active>
+    <array>false</array>
+    <attributes/>
+    <audit>false</audit>
+    <calculation/>
+    <column_label>SLA Pause Start</column_label>
+    <column_name>u_sla_pause_start</column_name>
+    <default_value/>
+    <display>false</display>
+    <element>u_sla_pause_start</element>
+    <element_reference>false</element_reference>
+    <foreign_database/>
+    <internal_type>glide_date_time</internal_type>
+    <mandatory>false</mandatory>
+    <max_length>40</max_length>
+    <name>incident</name>
+    <primary>false</primary>
+    <read_only>false</read_only>
+    <reference/>
+    <reference_cascade_rule>none</reference_cascade_rule>
+    <reference_key/>
+    <sizeclass/>
+    <spell_check>false</spell_check>
+    <staged>false</staged>
+    <sys_name>incident.u_sla_pause_start</sys_name>
+    <sys_scope display_value="Incident Helper">f58d3e878315b2109135f6b6feaad3ad</sys_scope>
+    <sys_update_name>sys_dictionary_incident_u_sla_pause_start</sys_update_name>
+    <text_index>false</text_index>
+    <type>glide_date_time</type>
+    <unique>false</unique>
+    <use_dependent_field>false</use_dependent_field>
+    <virtual>false</virtual>
+  </sys_dictionary>
+</record_update>

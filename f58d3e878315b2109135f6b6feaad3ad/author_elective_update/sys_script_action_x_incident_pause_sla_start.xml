@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_action">
+  <sys_script_action action="INSERT_OR_UPDATE">
+    <active>true</active>
+    <condition/>
+    <description>On start event, set pause flag to true to pause SLAs</description>
+    <event_name>x_incident.pause_sla_start</event_name>
+    <name>x_incident.pause_sla_start</name>
+    <script><![CDATA[(function(){
+  // In Script Action, current is the record that fired the event (Incident)
+  if (!current || current.getTableName() !== 'incident') return;
+  current.setValue('u_sla_pause_active', true);
+  current.update();
+})();]]></script>
+    <sys_name>x_incident.pause_sla_start</sys_name>
+    <sys_scope display_value="Incident Helper">f58d3e878315b2109135f6b6feaad3ad</sys_scope>
+    <sys_update_name>sys_script_action_x_incident_pause_sla_start</sys_update_name>
+    <table>incident</table>
+  </sys_script_action>
+</record_update>

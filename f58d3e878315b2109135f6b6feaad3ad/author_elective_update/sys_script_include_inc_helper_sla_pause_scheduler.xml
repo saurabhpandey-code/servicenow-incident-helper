@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+  <sys_script_include action="INSERT_OR_UPDATE">
+    <access>package_private</access>
+    <active>true</active>
+    <api_name>IncHelperSlaPauseScheduler</api_name>
+    <client_callable>true</client_callable>
+    <description>Schedules SLA pause/resume by setting fields and queuing events</description>
+    <name>IncHelperSlaPauseScheduler</name>
+    <script><![CDATA[var IncHelperSlaPauseScheduler = Class.create();
+IncHelperSlaPauseScheduler.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+  schedule: function() {
+    var incId = this.getParameter('sysparm_incident_id');
+    var startStr = this.getParameter('sysparm_start');
+    var endStr = this.getParameter('sysparm_end');
+
+    if (!incId || !startStr || !endStr)
+      return 'missing_params';
+
+    var gr = new GlideRecord('incident');
+    if (!gr.get(incId))
+      return 'not_found';
+
+    var gdtStart = new GlideDateTime(startStr);
+    var gdtEnd = new GlideDateTime(endStr);
+
+    if (!gdtStart || !gdtEnd)
+      return 'bad_datetime';
+
+    if (gdtEnd.getNumericValue() <= gdtStart.getNumericValue())
+      return 'invalid_range';
+
+    gr.setValue('u_sla_pause_start', gdtStart);
+    gr.setValue('u_sla_pause_end', gdtEnd);
+    gr.update();
+
+    // Cancel any previous scheduled events for this record
+    gs.eventQueueCancel('x_incident.pause_sla_start', gr);
+    gs.eventQueueCancel('x_incident.pause_sla_end', gr);
+
+    // Queue new start/end events
+    gs.eventQueueScheduled('x_incident.pause_sla_start', gr, '', '', gdtStart);
+    gs.eventQueueScheduled('x_incident.pause_sla_end', gr, '', '', gdtEnd);
+
+    return 'ok';
+  },
+  type: 'IncHelperSlaPauseScheduler'
+});]]></script>
+    <sys_name>IncHelperSlaPauseScheduler</sys_name>
+    <sys_scope display_value="Incident Helper">f58d3e878315b2109135f6b6feaad3ad</sys_scope>
+    <sys_update_name>sys_script_include_inc_helper_sla_pause_scheduler</sys_update_name>
+  </sys_script_include>
+</record_update>

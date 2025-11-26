@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+  <sys_ui_page action="INSERT_OR_UPDATE">
+    <client_script><![CDATA[(function() {
+  function submitPause() {
+    var start = document.getElementById('pause_start').value;
+    var end = document.getElementById('pause_end').value;
+    if (!start || !end) {
+      alert('Please provide both start and end date/times.');
+      return;
+    }
+    var ga = new GlideAjax('IncHelperSlaPauseScheduler');
+    ga.addParam('sysparm_name', 'schedule');
+    ga.addParam('sysparm_incident_id', g_form ? g_form.getUniqueValue() : top && top.g_form ? top.g_form.getUniqueValue() : '');
+    ga.addParam('sysparm_start', start);
+    ga.addParam('sysparm_end', end);
+    ga.getXMLAnswer(function(ans){
+      if (ans === 'ok') {
+        alert('SLA pause has been scheduled.');
+        try { GlideDialogWindow.get().destroy(); } catch(e) {}
+      } else {
+        alert('Failed to schedule: ' + ans);
+      }
+    });
+  }
+  window._inc_pause_sla_submit = submitPause;
+})();]]></client_script>
+    <description>Dialog to capture SLA pause start/end date-times</description>
+    <html><![CDATA[<div style="padding:12px;min-width:320px;">
+  <h2>Pause SLA</h2>
+  <div style="margin-top:8px;">
+    <label for="pause_start">Start (UTC):</label>
+    <input type="datetime-local" id="pause_start" />
+  </div>
+  <div style="margin-top:8px;">
+    <label for="pause_end">End (UTC):</label>
+    <input type="datetime-local" id="pause_end" />
+  </div>
+  <div style="margin-top:12px;">
+    <button class="btn btn-primary" onclick="_inc_pause_sla_submit()">Submit</button>
+    <button class="btn" onclick="try{GlideDialogWindow.get().destroy();}catch(e){}">Cancel</button>
+  </div>
+</div>]]></html>
+    <name>x_incident_pause_sla_dialog</name>
+    <processing_script/>
+    <sys_name>x_incident_pause_sla_dialog</sys_name>
+    <sys_scope display_value="Incident Helper">f58d3e878315b2109135f6b6feaad3ad</sys_scope>
+    <sys_update_name>sys_ui_page_x_incident_pause_sla_dialog</sys_update_name>
+  </sys_ui_page>
+</record_update>
