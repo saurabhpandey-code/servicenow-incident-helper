@@ -31,36 +31,9 @@
     <onclick>onClick()</onclick>
     <order>120</order>
     <script><![CDATA[function onClick() {
-  try {
-    var sysId = g_form && g_form.getUniqueValue ? g_form.getUniqueValue() : '';
-    // Prefer GlideModal in UI16
-    if (typeof GlideModal === 'function') {
-      var gm = new GlideModal('x_incident_pause_sla_dialog', false, 520);
-      gm.setTitle('Pause SLA');
-      gm.setPreference('sysparm_sys_id', sysId);
-      if (gm.setSize) gm.setSize(520, 260);
-      gm.render();
-      return;
-    }
-    // Fallback to classic dialog window
-    var win = (typeof top !== 'undefined' && top.GlideDialogWindow) ? top : window;
-    if (win && win.GlideDialogWindow) {
-      var dlg = new win.GlideDialogWindow('x_incident_pause_sla_dialog');
-      dlg.setTitle('Pause SLA');
-      dlg.setPreference('sysparm_sys_id', sysId);
-      if (dlg.setSize) dlg.setSize(520, 260);
-      dlg.render();
-      return;
-    }
-    // Last resort: open UI Page directly
-    if (sysId) {
-      window.open('x_incident_pause_sla_dialog.do?sysparm_sys_id=' + encodeURIComponent(sysId), '_blank', 'width=560,height=320');
-    } else {
-      window.open('x_incident_pause_sla_dialog.do', '_blank', 'width=560,height=320');
-    }
-  } catch (e) {
-    alert('Unable to open dialog: ' + e);
-  }
+  var sysId = (g_form && g_form.getUniqueValue) ? g_form.getUniqueValue() : '';
+  var url = 'x_incident_pause_sla_dialog.do' + (sysId ? ('?sysparm_sys_id=' + encodeURIComponent(sysId)) : '');
+  window.open(url, '_blank', 'width=600,height=380');
 }]]></script>
     <show_insert>true</show_insert>
     <show_multiple_update>false</show_multiple_update>
